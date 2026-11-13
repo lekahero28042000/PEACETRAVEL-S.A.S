@@ -1,0 +1,1268 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#075e55">
+<meta name="description" content="Peace Travel. Viajes personalizados y experiencias inolvidables.">
+<title>Peace Travel | M&L Labs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{
+--naranja:#f28b19;
+--aguamarina:#078d80;
+--verde:#075e55;
+--oscuro:#123b3b;
+--blanco:#fff;
+--gris:#647474;
+}
+body{font-family:'Montserrat',sans-serif;color:var(--oscuro);background:#f7faf8}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+/* =====================================
+   PANTALLA DE BIENVENIDA MARIA ALEJANDRA LABS
+===================================== */
+
+body.welcome-active{overflow:hidden}
+
+#welcomeScreen{
+position:fixed;
+inset:0;
+z-index:10000;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:25px;
+text-align:center;
+color:white;
+background:
+radial-gradient(circle at 15% 20%,rgba(7,141,128,.35),transparent 35%),
+radial-gradient(circle at 85% 80%,rgba(242,139,25,.18),transparent 30%),
+linear-gradient(145deg,#092f32,#075e55 60%,#078d80);
+transition:opacity .7s ease,visibility .7s ease;
+}
+
+#welcomeScreen::before,
+#welcomeScreen::after{
+content:"";
+position:absolute;
+border:1px solid rgba(184,233,223,.18);
+border-radius:50%;
+pointer-events:none;
+}
+
+#welcomeScreen::before{width:min(75vw,600px);aspect-ratio:1}
+#welcomeScreen::after{width:min(92vw,760px);aspect-ratio:1}
+
+.welcome-content{
+position:relative;
+z-index:2;
+width:100%;
+max-width:550px;
+animation:welcomeAnimation 1s ease;
+}
+
+.welcome-monogram{
+width:90px;
+height:90px;
+margin:0 auto 30px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid rgba(255,255,255,.5);
+border-radius:25px;
+background:rgba(255,255,255,.09);
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+font-family:'Playfair Display',serif;
+font-size:38px;
+font-weight:700;
+}
+
+.welcome-label{
+font-size:12px;
+letter-spacing:5px;
+color:#b8e9df;
+font-weight:700;
+margin-bottom:15px;
+text-transform:uppercase;
+}
+
+.welcome-title{
+font-family:'Playfair Display',serif;
+font-size:clamp(34px,7vw,65px);
+line-height:1.1;
+font-weight:700;
+color:white;
+}
+
+.welcome-title span{
+display:block;
+color:#b8e9df;
+}
+
+.welcome-line{
+width:65px;
+height:3px;
+background:var(--naranja);
+margin:25px auto;
+border-radius:10px;
+}
+
+.welcome-description{
+font-size:14px;
+line-height:1.8;
+color:rgba(255,255,255,.8);
+max-width:390px;
+margin:0 auto 35px;
+}
+
+#welcomeEnter{
+background:var(--naranja);
+color:white;
+border:0;
+border-radius:50px;
+padding:16px 42px;
+min-width:190px;
+font-size:14px;
+font-weight:800;
+letter-spacing:2px;
+box-shadow:0 10px 30px rgba(242,139,25,.3);
+transition:.3s;
+}
+
+#welcomeEnter:hover{
+background:#ff9b30;
+transform:translateY(-4px);
+box-shadow:0 15px 35px rgba(242,139,25,.4);
+}
+
+.welcome-footer{
+margin-top:50px;
+font-size:10px;
+letter-spacing:3px;
+color:rgba(255,255,255,.5);
+text-transform:uppercase;
+}
+
+#welcomeScreen.hide{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+#appContent{min-height:100vh}
+
+@keyframes welcomeAnimation{
+from{opacity:0;transform:translateY(25px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* HERO PRINCIPAL */
+
+.hero{
+min-height:720px;
+padding:25px 4%;
+position:relative;
+color:white;
+background:
+linear-gradient(rgba(0,40,36,.35),rgba(0,40,36,.50)),
+url("https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=2000&q=90");
+background-size:cover;
+background-position:center;
+}
+
+/* NAVEGACIÓN */
+
+.navbar{
+max-width:1400px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+background:rgba(4,40,44,.70);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,.20);
+border-radius:12px;
+}
+
+.logo{display:flex;align-items:center}
+.logo img{
+width:75px;
+height:75px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:32px;
+}
+
+.nav-links a{
+color:white;
+font-size:13px;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover{color:#36d5c0}
+
+.btn-naranja{
+display:inline-block;
+background:var(--naranja);
+color:white;
+padding:14px 23px;
+border:none;
+border-radius:9px;
+font-weight:700;
+transition:.3s;
+}
+
+.btn-naranja:hover{
+background:#d97509;
+transform:translateY(-2px);
+}
+
+.menu-toggle{
+display:none;
+background:none;
+border:none;
+color:white;
+font-size:29px;
+}
+
+/* CONTENIDO CENTRAL */
+
+.hero-content{
+max-width:950px;
+margin:65px auto 35px;
+text-align:center;
+padding:25px;
+}
+
+.hero-logo{
+width:140px;
+height:140px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid rgba(255,255,255,.8);
+margin-bottom:22px;
+}
+
+.hero-content h1{
+font-size:clamp(30px,5vw,49px);
+font-weight:800;
+line-height:1.2;
+margin-bottom:15px;
+text-shadow:0 3px 15px rgba(0,0,0,.4);
+}
+
+.hero-content p{
+font-size:16px;
+margin-bottom:28px;
+line-height:1.7;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn-verde{
+display:inline-block;
+background:var(--aguamarina);
+color:white;
+border:1px solid rgba(255,255,255,.4);
+border-radius:9px;
+padding:14px 23px;
+font-weight:700;
+transition:.3s;
+}
+
+.btn-verde:hover{
+background:#05685f;
+transform:translateY(-2px);
+}
+
+/* FORMULARIO DE VIAJE */
+
+.booking-container{
+max-width:1150px;
+margin:20px auto 0;
+padding:18px;
+background:white;
+border-radius:15px;
+display:grid;
+grid-template-columns:repeat(4,1fr) 1.3fr;
+gap:12px;
+box-shadow:0 12px 35px rgba(0,0,0,.20);
+}
+
+.booking-field{
+border:1px solid #dce8e5;
+border-radius:9px;
+padding:10px 12px;
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.booking-field label{
+font-size:11px;
+color:var(--aguamarina);
+font-weight:800;
+}
+
+.booking-field select,
+.booking-field input{
+width:100%;
+border:none;
+outline:none;
+background:transparent;
+color:#405454;
+font-family:inherit;
+font-size:12px;
+}
+
+.booking-submit{
+background:var(--aguamarina);
+color:white;
+border:none;
+border-radius:9px;
+font-weight:700;
+padding:12px;
+}
+
+.booking-submit:hover{background:var(--verde)}
+
+/* BENEFICIOS */
+
+.benefits{
+max-width:1150px;
+margin:22px auto 0;
+background:rgba(5,48,48,.83);
+border:1px solid rgba(255,255,255,.2);
+border-radius:12px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+padding:20px;
+gap:15px;
+}
+
+.benefit{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.benefit-icon{
+min-width:42px;
+height:42px;
+border-radius:50%;
+background:rgba(30,207,181,.20);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+}
+
+.benefit h3{font-size:12px;margin-bottom:5px}
+.benefit p{color:#d0e5e0;font-size:10px;line-height:1.5}
+
+/* SECCIONES GENERALES */
+
+section.content-section{padding:85px 6%}
+
+.section-title{
+text-align:center;
+margin-bottom:45px;
+}
+
+.section-title span{
+color:var(--aguamarina);
+font-size:12px;
+font-weight:800;
+text-transform:uppercase;
+letter-spacing:3px;
+}
+
+.section-title h2{
+font-family:'Playfair Display',serif;
+font-size:clamp(30px,4vw,42px);
+margin:12px 0;
+}
+
+.section-title p{
+color:var(--gris);
+font-size:14px;
+line-height:1.7;
+}
+
+/* DESTINOS */
+
+.destinations{background:#f7faf8}
+
+.destination-grid{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.destination-card{
+position:relative;
+height:340px;
+overflow:hidden;
+border-radius:16px;
+box-shadow:0 8px 25px rgba(0,0,0,.10);
+}
+
+.destination-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:.5s;
+}
+
+.destination-card:hover img{transform:scale(1.1)}
+
+.destination-info{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:30px 20px;
+color:white;
+background:linear-gradient(transparent,rgba(0,0,0,.85));
+}
+
+.destination-info h3{font-size:22px;margin-bottom:8px}
+.destination-info p{font-size:12px}
+
+/* ITINERARIOS */
+
+.itineraries{background:white}
+
+.itinerary-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.itinerary-card{
+padding:30px;
+border:1px solid #e1ece9;
+border-radius:15px;
+transition:.3s;
+}
+
+.itinerary-card:hover{
+transform:translateY(-6px);
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.itinerary-card .icon{font-size:35px;margin-bottom:20px}
+.itinerary-card h3{margin-bottom:12px}
+.itinerary-card p{
+font-size:13px;
+color:var(--gris);
+line-height:1.7;
+}
+
+/* CALCULADORA */
+
+.calculator{
+background:linear-gradient(135deg,#075e55,#078d80);
+color:white;
+}
+
+.calculator .section-title p,
+.calculator .section-title span{color:#d5fff7}
+
+.calculator-box{
+max-width:650px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:16px;
+color:var(--oscuro);
+}
+
+.calculator-box label{
+display:block;
+font-size:13px;
+font-weight:700;
+margin:17px 0 8px;
+}
+
+.calculator-box select,
+.calculator-box input{
+width:100%;
+padding:14px;
+border:1px solid #dce8e5;
+border-radius:8px;
+font-family:inherit;
+}
+
+.calculator-box button{
+width:100%;
+margin-top:22px;
+}
+
+.result{
+margin-top:20px;
+padding:20px;
+background:#e9f8f5;
+border-radius:10px;
+text-align:center;
+display:none;
+}
+
+.result h3{
+color:var(--aguamarina);
+font-size:25px;
+margin-top:10px;
+}
+
+/* NOSOTROS */
+
+.about{background:white}
+
+.about-content{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:50px;
+}
+
+.about-content img{
+width:100%;
+border-radius:18px;
+}
+
+.about-text h2{
+font-family:'Playfair Display',serif;
+font-size:38px;
+margin-bottom:20px;
+}
+
+.about-text p{
+color:var(--gris);
+line-height:1.9;
+font-size:14px;
+margin-bottom:18px;
+}
+
+/* CONTACTO */
+
+.contact{
+background:#eff8f5;
+text-align:center;
+}
+
+.contact-content{max-width:700px;margin:auto}
+
+.contact-content p{
+color:var(--gris);
+line-height:1.8;
+margin-bottom:25px;
+}
+
+/* FOOTER */
+
+footer{
+background:#092e2c;
+color:white;
+padding:50px 6% 20px;
+}
+
+.footer-content{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:40px;
+}
+
+.footer-logo{
+width:85px;
+height:85px;
+object-fit:cover;
+border-radius:50%;
+margin-bottom:15px;
+}
+
+.footer-content h3{margin-bottom:18px}
+
+.footer-content p,
+.footer-content a{
+font-size:12px;
+line-height:2.2;
+color:#c4d8d4;
+display:block;
+}
+
+.footer-bottom{
+border-top:1px solid rgba(255,255,255,.15);
+margin-top:35px;
+padding-top:20px;
+text-align:center;
+font-size:11px;
+color:#b9ceca;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:58px;
+height:58px;
+background:#25d366;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+box-shadow:0 5px 20px rgba(0,0,0,.2);
+z-index:999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+.booking-container{grid-template-columns:repeat(2,1fr)}
+.benefits{grid-template-columns:repeat(2,1fr)}
+.destination-grid,.itinerary-grid{grid-template-columns:repeat(2,1fr)}
+.about-content{grid-template-columns:1fr}
+}
+
+@media(max-width:650px){
+.hero{padding:15px;min-height:auto;padding-bottom:35px}
+.navbar{padding:10px}
+.logo img{width:60px;height:60px}
+.menu-toggle{display:block}
+.nav-links{
+display:none;
+position:absolute;
+top:90px;
+left:15px;
+right:15px;
+z-index:100;
+flex-direction:column;
+align-items:stretch;
+background:#083d39;
+padding:25px;
+border-radius:12px;
+gap:22px;
+}
+.nav-links.active{display:flex}
+.hero-content{margin:40px auto 25px;padding:10px}
+.hero-logo{width:115px;height:115px}
+.hero-content h1{font-size:32px}
+.hero-content p{font-size:13px}
+.booking-container{grid-template-columns:1fr;padding:14px}
+.benefits{grid-template-columns:1fr}
+.destination-grid,.itinerary-grid{grid-template-columns:1fr}
+section.content-section{padding:65px 20px}
+.calculator-box{padding:22px}
+.footer-content{grid-template-columns:1fr}
+.hero-buttons{flex-direction:column}
+.hero-buttons a{text-align:center}
+.welcome-monogram{width:75px;height:75px;font-size:32px}
+.welcome-description{font-size:13px}
+.welcome-footer{margin-top:35px}
+}
+</style>
+</head>
+
+<body class="welcome-active">
+
+<!-- =====================================
+     PANTALLA DE BIENVENIDA
+===================================== -->
+
+<div id="welcomeScreen">
+
+    <div class="welcome-content">
+
+        <div class="welcome-monogram">MA</div>
+
+        <p class="welcome-label">Bienvenido a</p>
+
+        <h1 class="welcome-title">
+            M&L
+            <span>LABS</span>
+        </h1>
+
+        <div class="welcome-line"></div>
+
+        <p class="welcome-description">
+            Tecnología, creatividad e innovación
+            para construir experiencias memorables.
+        </p>
+
+        <button id="welcomeEnter" type="button">
+            ENTRAR →
+        </button>
+
+        <p class="welcome-footer">
+            Una experiencia comienza aquí
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =====================================
+     CONTENIDO PRINCIPAL PEACE TRAVEL
+===================================== -->
+
+<div id="appContent" aria-hidden="true">
+
+<!-- INICIO -->
+
+<header class="hero" id="inicio">
+
+<nav class="navbar">
+
+    <a href="#inicio" class="logo">
+        <img src="WhatsApp Image 2026-11-09 at 8.09.40 PM.jpeg" alt="Peace Travel">
+    </a>
+
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menú">
+        ☰
+    </button>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="#inicio" onclick="closeMenu()">Inicio</a>
+        <a href="#destinos" onclick="closeMenu()">Destinos</a>
+        <a href="#itinerarios" onclick="closeMenu()">Itinerarios</a>
+        <a href="#calculadora" onclick="closeMenu()">Calculadora</a>
+        <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
+        <a href="#contacto" onclick="closeMenu()">Contacto</a>
+
+        <a href="#reservar" class="btn-naranja" onclick="closeMenu()">
+            Reservar ahora
+        </a>
+
+    </div>
+
+</nav>
+
+<div class="hero-content">
+
+    <img src="WhatsApp Image 2026-11-09 at 8.09.40 PM.jpeg"
+         alt="Peace Travel Logo"
+         class="hero-logo">
+
+    <h1>Descubre el mundo con Maria Alejandra</h1>
+
+    <p>
+        Viajes personalizados, precios transparentes
+        y experiencias inolvidables.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#reservar" class="btn-naranja">
+            Reservar ahora →
+        </a>
+
+        <a href="#destinos" class="btn-verde">
+            Explorar destinos →
+        </a>
+
+    </div>
+
+</div>
+
+<!-- BUSCADOR DE VIAJES -->
+
+<div class="booking-container" id="reservar">
+
+    <div class="booking-field">
+        <label>📍 Destino</label>
+        <select id="destino">
+            <option value="">¿A dónde quieres ir?</option>
+            <option>Cartagena</option>
+            <option>Santa Marta</option>
+            <option>Barranquilla</option>
+            <option>San Andrés</option>
+            <option>Otros destinos</option>
+        </select>
+    </div>
+
+    <div class="booking-field">
+        <label>📅 Fecha</label>
+        <input type="date" id="fecha">
+    </div>
+
+    <div class="booking-field">
+        <label>👤 Viajeros</label>
+        <select id="viajeros">
+            <option value="1">1 viajero</option>
+            <option value="2">2 viajeros</option>
+            <option value="3">3 viajeros</option>
+            <option value="4">4 viajeros</option>
+            <option value="5">5 o más</option>
+        </select>
+    </div>
+
+    <div class="booking-field">
+        <label>💰 Presupuesto</label>
+        <select id="presupuesto">
+            <option value="">Tu presupuesto</option>
+            <option>Menos de $500.000</option>
+            <option>$500.000 - $1.000.000</option>
+            <option>$1.000.000 - $2.000.000</option>
+            <option>Más de $2.000.000</option>
+        </select>
+    </div>
+
+    <button class="booking-submit" onclick="reservarViaje()">
+        Calcular mi viaje →
+    </button>
+
+</div>
+
+<!-- BENEFICIOS -->
+
+<div class="benefits">
+
+    <div class="benefit">
+        <div class="benefit-icon">💎</div>
+        <div>
+            <h3>Precios reales</h3>
+            <p>Sin sorpresas en el costo final.</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🛡️</div>
+        <div>
+            <h3>Viajes seguros</h3>
+            <p>Tu seguridad es nuestra prioridad.</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🎧</div>
+        <div>
+            <h3>Atención personalizada</h3>
+            <p>Te acompañamos antes, durante y después.</p>
+        </div>
+    </div>
+
+    <div class="benefit">
+        <div class="benefit-icon">🌎</div>
+        <div>
+            <h3>Experiencias únicas</h3>
+            <p>Destinos increíbles y momentos inolvidables.</p>
+        </div>
+    </div>
+
+</div>
+
+</header>
+
+<!-- DESTINOS -->
+
+<section class="content-section destinations" id="destinos">
+
+    <div class="section-title">
+        <span>Explora el mundo</span>
+        <h2>Destinos que inspiran</h2>
+        <p>
+            Encuentra tu próximo destino y vive una experiencia
+            que recordarás para siempre.
+        </p>
+    </div>
+
+    <div class="destination-grid">
+
+        <article class="destination-card">
+            <img src="images.jpg?auto=format&fit=crop&w=900&q=85"
+                 alt="Cartagena">
+            <div class="destination-info">
+                <h3>Cartagena</h3>
+                <p>Historia, playas y cultura caribeña.</p>
+            </div>
+        </article>
+
+        <article class="destination-card">
+            <img src="santamarta-01.jpg?auto=format&fit=crop&w=900&q=85"
+                 alt="Santa Marta">
+            <div class="destination-info">
+                <h3>Santa Marta</h3>
+                <p>Naturaleza, mar y aventura.</p>
+            </div>
+        </article>
+
+        <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=85"
+                 alt="Destino tropical">
+            <div class="destination-info">
+                <h3>Experiencias tropicales</h3>
+                <p>Descubre lugares extraordinarios.</p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ITINERARIOS -->
+
+<section class="content-section itineraries" id="itinerarios">
+
+    <div class="section-title">
+        <span>Planea tu aventura</span>
+        <h2>Itinerarios personalizados</h2>
+        <p>
+            Cada viaje tiene una historia. Nosotros te ayudamos
+            a diseñar la tuya.
+        </p>
+    </div>
+
+    <div class="itinerary-grid">
+
+        <article class="itinerary-card">
+            <div class="icon">🏖️</div>
+            <h3>Escapadas de playa</h3>
+            <p>
+                Vive días de descanso en playas increíbles,
+                disfruta del mar y desconéctate de la rutina.
+            </p>
+        </article>
+
+        <article class="itinerary-card">
+            <div class="icon">🌿</div>
+            <h3>Aventura y naturaleza</h3>
+            <p>
+                Explora paisajes naturales, cascadas,
+                montañas y experiencias al aire libre.
+            </p>
+        </article>
+
+        <article class="itinerary-card">
+            <div class="icon">❤️</div>
+            <h3>Viajes especiales</h3>
+            <p>
+                Diseñamos experiencias para parejas,
+                familias y celebraciones especiales.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- CALCULADORA -->
+
+<section class="content-section calculator" id="calculadora">
+
+    <div class="section-title">
+        <span>Planea inteligentemente</span>
+        <h2>Calcula tu próximo viaje</h2>
+        <p>
+            Consulta una estimación de tu presupuesto
+            y comienza a organizar tu aventura.
+        </p>
+    </div>
+
+    <div class="calculator-box">
+
+        <label>Destino</label>
+
+        <select id="calcDestino">
+            <option value="350000">Cartagena</option>
+            <option value="300000">Santa Marta</option>
+            <option value="250000">Barranquilla</option>
+            <option value="650000">San Andrés</option>
+        </select>
+
+        <label>Número de viajeros</label>
+
+        <input type="number" id="calcPersonas"
+               min="1" max="20" value="1">
+
+        <label>Días de viaje</label>
+
+        <input type="number" id="calcDias"
+               min="1" max="30" value="3">
+
+        <button class="btn-naranja" onclick="calcularPresupuesto()">
+            Calcular presupuesto
+        </button>
+
+        <div class="result" id="resultado">
+            <p>Presupuesto estimado</p>
+            <h3 id="valorResultado">$0</h3>
+            <small>Valor orientativo sujeto a cotización.</small>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- NOSOTROS -->
+
+<section class="content-section about" id="nosotros">
+
+    <div class="about-content">
+
+        <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1000&q=85"
+             alt="Paisaje turístico">
+
+        <div class="about-text">
+
+            <h2>Viajar también es encontrar tranquilidad.</h2>
+
+            <p>
+                En Peace Travel creemos que cada viaje
+                representa una oportunidad para descubrir,
+                compartir y crear recuerdos inolvidables.
+            </p>
+
+            <p>
+                Trabajamos para ofrecer experiencias
+                personalizadas, asesoría cercana y alternativas
+                que se adapten a las necesidades de cada viajero.
+            </p>
+
+            <a href="#contacto" class="btn-verde">
+                Conoce nuestros servicios →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section class="content-section contact" id="contacto">
+
+    <div class="contact-content">
+
+        <div class="section-title">
+            <span>Estamos para ayudarte</span>
+            <h2>Comienza a planear tu viaje</h2>
+            <p>
+                Cuéntanos qué destino tienes en mente.
+                Nuestro equipo estará encantado de asesorarte.
+            </p>
+        </div>
+
+        <a href="https://wa.me/573016975965"
+           target="_blank"
+           rel="noopener"
+           class="btn-verde">
+            Contactar por WhatsApp →
+        </a>
+
+    </div>
+
+</section>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <img src="WhatsApp Image 2026-11-09 at 8.09.40 PM.jpeg"
+                 alt="Peace Travel"
+                 class="footer-logo">
+
+            <h3>Peace Travel</h3>
+
+            <p>
+                Descubre el mundo con tranquilidad.
+                Viajes personalizados y experiencias
+                inolvidables.
+            </p>
+        </div>
+
+        <div>
+            <h3>Explora</h3>
+            <a href="#inicio">Inicio</a>
+            <a href="#destinos">Destinos</a>
+            <a href="#itinerarios">Itinerarios</a>
+            <a href="#calculadora">Calculadora</a>
+        </div>
+
+        <div>
+            <h3>Información</h3>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#reservar">Reservaciones</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Peace Travel. Todos los derechos reservados.
+        <br><br>
+        Diseño y desarrollo por Leiva Labs.
+    </div>
+
+</footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/573016975965"
+   target="_blank"
+   rel="noopener"
+   class="whatsapp"
+   aria-label="Contactar por WhatsApp">
+    ☎
+</a>
+
+</div>
+<!-- FIN DEL CONTENIDO PRINCIPAL -->
+
+<script>
+
+/* =====================================
+   ENTRADA A PEACE TRAVEL
+===================================== */
+
+document.getElementById("welcomeEnter").addEventListener("click",function(){
+
+    const welcome=document.getElementById("welcomeScreen");
+    const app=document.getElementById("appContent");
+
+    welcome.classList.add("hide");
+
+    document.body.classList.remove("welcome-active");
+
+    app.setAttribute("aria-hidden","false");
+
+    setTimeout(function(){
+        welcome.style.display="none";
+    },750);
+
+});
+
+/* MENÚ RESPONSIVE */
+
+function toggleMenu(){
+    document.getElementById("navLinks")
+    .classList.toggle("active");
+}
+
+function closeMenu(){
+    document.getElementById("navLinks")
+    .classList.remove("active");
+}
+
+/* FORMULARIO DE RESERVA */
+
+function reservarViaje(){
+
+    const destino=document.getElementById("destino").value;
+    const fecha=document.getElementById("fecha").value;
+    const viajeros=document.getElementById("viajeros").value;
+    const presupuesto=document.getElementById("presupuesto").value;
+
+    if(!destino||!fecha||!presupuesto){
+        alert("Por favor completa los datos de tu viaje.");
+        return;
+    }
+
+    const mensaje=
+`Hola, quiero solicitar información para un viaje.
+
+Destino: ${destino}
+Fecha: ${fecha}
+Viajeros: ${viajeros}
+Presupuesto: ${presupuesto}
+
+Quiero recibir una cotización.`;
+
+    const telefono="573016975965";
+
+    const url="https://wa.me/"+telefono+
+    "?text="+encodeURIComponent(mensaje);
+
+    window.open(url,"_blank");
+
+}
+
+/* CALCULADORA */
+
+function calcularPresupuesto(){
+
+    const precio=Number(
+        document.getElementById("calcDestino").value
+    );
+
+    const personas=Number(
+        document.getElementById("calcPersonas").value
+    );
+
+    const dias=Number(
+        document.getElementById("calcDias").value
+    );
+
+    if(
+        !Number.isInteger(personas)||
+        !Number.isInteger(dias)||
+        personas<1||
+        dias<1||
+        personas>20||
+        dias>30
+    ){
+
+        alert("Ingresa una cantidad válida de viajeros y días.");
+        return;
+
+    }
+
+    const total=precio*personas*dias;
+
+    document.getElementById("valorResultado")
+    .textContent=total.toLocaleString("es-CO",{
+        style:"currency",
+        currency:"COP",
+        maximumFractionDigits:0
+    });
+
+    document.getElementById("resultado")
+    .style.display="block";
+
+}
+
+/* FECHA MÍNIMA DE RESERVA */
+
+const fechaActual=new Date().toISOString().split("T")[0];
+
+document.getElementById("fecha").min=fechaActual;
+
+</script>
+
+</body>
+</html>
